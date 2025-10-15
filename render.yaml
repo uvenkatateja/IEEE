@@ -1,10 +1,12 @@
 services:
   - type: web
     name: ieee
-    env: static
+    env: node
+    region: oregon
+    plan: free
+    branch: main
     buildCommand: npm install && npm run build
-    staticPublishPath: ./out
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
